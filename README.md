@@ -1,2 +1,2 @@
 # cine-lisa
-all creadits to arian novin as front end developer
+All credits to arian novin as front end developer and UI/UX designer
