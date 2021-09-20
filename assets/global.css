@@ -1,0 +1,26 @@
+:root {
+    --light-background-color      : #f0f0f0;
+    --light-background-color01    : #BCBCBC;
+    --dark-text-color             : #202020;
+    --dark-text-color-dimmed      : #8E8E8E;
+    --primary-theme-color         : #ff6600;
+    --secondary-theme-color       : #ff9650;
+    --secondary-theme-color-dimmed: #c3875f;
+    --side-padding                : 138px;
+}
+
+::selection {
+    color           : white;
+    background-color: var(--secondary-theme-color);
+}
+
+body {
+    overflow-x: hidden;
+    margin    : 0;
+    padding   : 0;
+}
+
+a.nuxt-link-exact-active.nuxt-link-active {
+    color      : var(--primary-theme-color);
+    font-weight: 600;
+}

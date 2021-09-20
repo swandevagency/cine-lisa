@@ -1,0 +1,11 @@
+Model Information:
+* title:	Container
+* source:	https://sketchfab.com/3d-models/container-6be57f42b5254fde990ed3f9511fec31
+* author:	Epic_Hard_RU (https://sketchfab.com/Epic_Hard_RU)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Container" (https://sketchfab.com/3d-models/container-6be57f42b5254fde990ed3f9511fec31) by Epic_Hard_RU (https://sketchfab.com/Epic_Hard_RU) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
