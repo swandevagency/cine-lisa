@@ -18,4 +18,14 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 1024px) {
+  .layout-wrapper {
+    padding-top: 4rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  .layout-wrapper {
+    padding-top: 6rem;
+  }
+}
 </style>

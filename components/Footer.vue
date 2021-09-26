@@ -93,6 +93,7 @@ export default {};
 </script>
 
 <style>
+/* #region Default version */
 .footer-wrapper {
   background-color: var(--light-background-color);
   padding: 50px var(--side-padding) 80px;
@@ -113,6 +114,7 @@ export default {};
 .footer-content-wrapper {
   margin-top: 2em;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .footer-navigation-links-list {
@@ -132,6 +134,11 @@ export default {};
 .social-media-content-wrapper {
   margin-top: 4em;
 }
+.footer-description-wrapper,
+.footer-navigation-links-wrapper {
+  min-width: 230px;
+  flex-basis: calc(50%);
+}
 .social-media-links-list {
   display: flex;
   padding: 0;
@@ -149,5 +156,22 @@ export default {};
 }
 .footer-subtitle {
   font-weight: 400;
+}
+/* #endregion */
+/* Laptop L 1440px */
+@media screen and (max-width: 1440px) {
+  .footer-wrapper {
+    padding: 35px calc(var(--side-padding) / 2) 60px;
+  }
+}
+/* Mobile L 425px */
+@media screen and (max-width: 425px) {
+  .footer-wrapper {
+    padding: 25px calc(var(--side-padding) / 4) 40px;
+  }
+  .footer-subtitle {
+    font-size: 14px;
+    letter-spacing: 0.8em;
+  }
 }
 </style>

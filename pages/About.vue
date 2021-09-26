@@ -479,11 +479,42 @@ export default {
     this.animateLandingPage();
     this.renderOurTechnologies();
     this.renderOurHistory();
+    window.addEventListener("resize", () => {
+      // Update camera
+      this.camera.aspect =
+        this.$refs.cameraTechnologyRender.clientWidth /
+        this.$refs.cameraTechnologyRender.clientHeight;
+      this.camera2.aspect =
+        this.$refs.ourHistoryCameraTechnologyRender.clientWidth /
+        this.$refs.ourHistoryCameraTechnologyRender.clientHeight;
+      this.camera.updateProjectionMatrix();
+      this.camera2.updateProjectionMatrix();
+
+      // Update renderer
+      this.renderer.setSize(
+        this.$refs.cameraTechnologyRender.clientWidth,
+        this.$refs.cameraTechnologyRender.clientHeight
+      );
+      this.renderer2.setSize(
+        this.$refs.ourHistoryCameraTechnologyRender.clientWidth,
+        this.$refs.ourHistoryCameraTechnologyRender.clientHeight
+      );
+      this.renderer.setPixelRatio(
+        Math.min(this.$refs.cameraTechnologyRender.devicePixelRatio, 2)
+      );
+      this.renderer2.setPixelRatio(
+        Math.min(
+          this.$refs.ourHistoryCameraTechnologyRender.devicePixelRatio,
+          2
+        )
+      );
+    });
   },
 };
 </script>
 
 <style>
+/* #region Default version */
 .about-page-wrapper {
   padding: 0 var(--side-padding);
 }
@@ -501,13 +532,13 @@ export default {
   margin: 0;
   position: relative;
   font-weight: 100;
-  font-size: 10vw;
+  font-size: 20vh;
 }
 .about-landing-page-title-wrapper > h5 {
   color: var(--secondary-theme-color-dimmed);
   margin: 0;
   font-weight: 400;
-  font-size: 2vw;
+  font-size: 5vh;
 }
 .about-landing-page-title-wrapper > h1::after {
   content: "";
@@ -527,14 +558,18 @@ export default {
 .about-page-content-wrapper,
 .about-page-our-history-content-wrapper {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 .about-page-description-wrapper,
 .about-page-our-history-description-wrapper {
-  line-height: 1.8em;
   color: var(--dark-text-color);
   font-family: montserrat;
+}
+.about-page-description-wrapper > p,
+.about-page-our-history-description-wrapper > p {
+  line-height: 1.8em;
 }
 .about-page-description-wrapper > h3,
 .about-page-our-history-description-wrapper > h3 {
@@ -618,6 +653,10 @@ export default {
 }
 .our-technology-inspector-views-list {
   display: flex;
+  overflow-x: scroll;
+}
+.our-technology-inspector-views-list::-webkit-scrollbar {
+  display: none;
 }
 .inspector-model-view-item {
   cursor: pointer;
@@ -664,6 +703,8 @@ export default {
   inset: 0;
   position: absolute;
 }
+/* #endregion */
+
 /* #region Transitions */
 .about-enter-active,
 .about-leave-active {
@@ -674,4 +715,65 @@ export default {
   opacity: 0;
 }
 /* #endregion */
+
+/* Laptop L 1440px */
+@media screen and (max-width: 1440px) {
+  .about-page-wrapper {
+    padding: 0 calc(var(--side-padding) / 2);
+  }
+  .about-page-description-wrapper > h3,
+  .about-page-our-history-description-wrapper > h3 {
+    font-size: 2.5em;
+  }
+}
+/* Laptop S 1024px */
+@media screen and (max-width: 1024px) {
+  .about-page-description-wrapper > h3,
+  .about-page-our-history-description-wrapper > h3 {
+    font-size: 2em;
+    margin: 1.5em 0;
+  }
+}
+/* Tablet 768px */
+@media screen and (max-width: 768px) {
+  .about-page-render-canvas-wrapper,
+  .about-page-description-wrapper,
+  .about-page-our-history-render-canvas-wrapper,
+  .about-page-our-history-description-wrapper {
+    min-width: 80vw;
+  }
+  .about-page-our-history-description-wrapper {
+    order: -1;
+  }
+  .about-landing-page-title-wrapper > h1 {
+    font-size: 15vw;
+  }
+  .about-landing-page-title-wrapper > h5 {
+    font-size: 3vw;
+  }
+  .about-landing-page-title-wrapper > h1::after {
+    height: 2px;
+  }
+}
+/* Mobile L 425px */
+@media screen and (max-width: 425px) {
+  .about-page-wrapper {
+    padding: 0 calc(var(--side-padding) / 4);
+  }
+  .about-landing-page-title-wrapper > h1 {
+    font-size: 8vh;
+  }
+  .about-landing-page-title-wrapper > h5 {
+    font-size: 2vh;
+  }
+  .about-landing-page-title-wrapper > h1::after {
+    top: 8%;
+    height: 1px;
+  }
+  .about-page-description-wrapper > h3,
+  .about-page-our-history-description-wrapper > h3 {
+    font-size: 1.5em;
+    margin: 1.5em 0;
+  }
+}
 </style>

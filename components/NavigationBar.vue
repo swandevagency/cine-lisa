@@ -22,6 +22,7 @@ export default {};
   background-color: var(--light-background-color);
   padding: 33px 45px 15px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   font-family: montserrat;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -54,5 +55,36 @@ export default {};
 .navigation-logo span {
   color: var(--primary-theme-color);
   border-top: 1px solid var(--primary-theme-color);
+}
+/* Laptop 1024px */
+@media screen and (max-width: 1024px) {
+  .navigation-bar-wrapper {
+    justify-content: center;
+    left: 0;
+    width: unset;
+    right: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .navigation-logo {
+    margin-bottom: 1em;
+  }
+  .navigation-links-list {
+    min-width: 80vw;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+/* Iphone SE 5 */
+@media screen and (max-width: 425px) {
+  .navigation-bar-wrapper {
+    padding: 18px 14px 22px;
+  }
+  .navigation-links-list li {
+    margin-right: 12px;
+  }
+  .navigation-links-list li a {
+    font-size: 14px;
+  }
 }
 </style>

@@ -159,13 +159,30 @@ export default {
   mounted() {
     this.dataInitialization();
     this.renderProductModel();
+    window.addEventListener("resize", () => {
+      // Update camera
+      this.camera.aspect =
+        this.$refs.productModelRenderer.clientWidth /
+        this.$refs.productModelRenderer.clientHeight;
+      this.camera.updateProjectionMatrix();
+
+      // Update renderer
+      this.renderer.setSize(
+        this.$refs.productModelRenderer.clientWidth,
+        this.$refs.productModelRenderer.clientHeight
+      );
+      this.renderer.setPixelRatio(
+        Math.min(this.$refs.productModelRenderer.devicePixelRatio, 2)
+      );
+    });
   },
 };
 </script>
 
 <style>
+/* #region Default version */
 .individual-product-page-wrapper {
-  padding: 1em var(--side-padding);
+  padding: 4em var(--side-padding);
   font-family: montserrat;
 }
 .product-info-title-wrapper > h3 {
@@ -194,6 +211,7 @@ export default {
 }
 .product-info-content-wrapper {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1em;
   justify-content: space-between;
 }
@@ -274,6 +292,7 @@ export default {
 .back-to-products-button:hover {
   background-color: var(--secondary-theme-color);
 }
+/* #endregion */
 /* #region Transitions */
 .individualProducts-enter-active,
 .individualProducts-leave-active {
@@ -284,4 +303,36 @@ export default {
   opacity: 0;
 }
 /* #endregion */
+/* Laptop L 1440px */
+@media screen and (max-width: 1440px) {
+  .individual-product-page-wrapper {
+    padding: 3em calc(var(--side-padding) / 2);
+  }
+  .product-info-title-wrapper > h3 {
+    padding: 0 0 0.3em;
+    font-size: 1.4em;
+  }
+  .product-info-title-wrapper > h4 {
+    font-size: 0.8em;
+  }
+}
+/* Laptop S 1024px */
+@media screen and (max-width: 1024px) {
+}
+/* Tablet 768px */
+@media screen and (max-width: 768px) {
+  .product-model-viewer {
+    order: -1;
+  }
+  .product-info-description-wrapper,
+  .product-model-viewer {
+    min-width: 80vw;
+  }
+}
+/* Mobile L 425px */
+@media screen and (max-width: 425px) {
+  .individual-product-page-wrapper {
+    padding: 3em calc(var(--side-padding) / 4);
+  }
+}
 </style>

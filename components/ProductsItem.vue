@@ -66,6 +66,7 @@ export default {
   border-radius: 0.2em;
   color: var(--dark-text-color);
   background-color: var(--light-background-color);
+  min-width: 200px;
   flex-basis: calc(20% - 0.2em);
 }
 .product-item-wrapper:hover {
@@ -95,5 +96,11 @@ export default {
 }
 .product-information-title-wrapper > p {
   color: var(--secondary-theme-color);
+}
+/* Out of context 620px */
+@media screen and (max-width: 620px) {
+  .products-item-wrapper {
+    min-width: 280px;
+  }
 }
 </style>

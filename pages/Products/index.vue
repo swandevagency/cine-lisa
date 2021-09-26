@@ -92,8 +92,9 @@ export default {
 </script>
 
 <style>
+/* #region Default version */
 .products-page-wrapper {
-  padding: 1em var(--side-padding);
+  padding: 4em var(--side-padding);
   font-family: montserrat;
 }
 .products-page-content-wrapper > h3 {
@@ -121,6 +122,13 @@ export default {
 .products-categories-wrapper {
   margin-top: 3em;
 }
+.category-buttons-wrapper {
+  display: flex;
+  overflow-x: scroll;
+}
+.category-buttons-wrapper::-webkit-scrollbar {
+  display: flex;
+}
 .category-buttons-wrapper a.nuxt-link-exact-active {
   background-color: var(--primary-theme-color);
   border: 1px solid var(--secondary-theme-color-dimmed);
@@ -130,7 +138,7 @@ a.category-button {
   display: inline-block;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, border 0.2s;
-  flex-basis: 10%;
+  /* flex-basis: 10%; */
   border: 1px solid var(--light-background-color01);
   border-radius: 0.2em;
   font-size: 0.95em;
@@ -148,7 +156,7 @@ a.category-button {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
+/* #endregion */
 /* #region Transitions */
 .products-enter-active,
 .products-leave-active {
@@ -159,4 +167,29 @@ a.category-button {
   opacity: 0;
 }
 /* #endregion */
+
+/* Laptop L 1440px */
+@media screen and (max-width: 1440px) {
+  .products-page-wrapper {
+    padding: 2em calc(var(--side-padding) / 2);
+  }
+}
+/* Laptop S 1024px */
+@media screen and (max-width: 1024px) {
+}
+/* Out of context 620px */
+@media screen and (max-width: 620px) {
+  .products-list-wrapper {
+    flex-direction: column;
+  }
+}
+/* Tablet 768px */
+@media screen and (max-width: 768px) {
+}
+/* Mobile L 425px */
+@media screen and (max-width: 425px) {
+  .products-page-wrapper {
+    padding: 3em calc(var(--side-padding) / 4);
+  }
+}
 </style>

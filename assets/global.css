@@ -24,3 +24,9 @@ a.nuxt-link-exact-active.nuxt-link-active {
     color      : var(--primary-theme-color);
     font-weight: 600;
 }
+
+/* @media screen and (max-width: 425px) {
+    body {
+        padding-top: 3rem;
+    }
+} */

@@ -204,6 +204,7 @@ export default {
 };
 </script>
 <style>
+/* #region Default version */
 .nuxt-app-wrapper {
   padding: 0 var(--side-padding);
   position: relative;
@@ -535,6 +536,7 @@ export default {
   }
 }
 /* #endregion */
+/* #endregion */
 
 /* #region Transitions */
 .home-enter-active,
@@ -546,4 +548,161 @@ export default {
   opacity: 0;
 }
 /* #endregion */
+
+/* Laptop L 1440px */
+@media screen and (max-width: 1440px) {
+  .landing-title-wrapper > h2 {
+    font-size: 64px;
+  }
+  .shot-on-cine-lisa-title-wrapper {
+    padding: 2em;
+  }
+  .shot-on-cine-lisa-title-wrapper > h2 {
+    font-size: 34px;
+  }
+  .side-ribbon-wrapper {
+    padding-left: calc(var(--side-padding) / 2);
+  }
+  .landing-title-wrapper::before {
+    left: -32%;
+  }
+  .landing-title-wrapper::after {
+    left: -32%;
+  }
+  .aside-landing-image-wrapper {
+    flex-basis: calc(45% - (var(--side-padding)));
+  }
+}
+/* Laptop S 1024px */
+@media screen and (max-width: 1024px) {
+  .shot-on-cine-lisa-title-wrapper > h2 {
+    font-size: 24px;
+  }
+}
+/* Out of context 1000px */
+@media screen and (max-width: 1000px) {
+  .aside-landing-image-wrapper {
+    display: none;
+  }
+}
+/* Tablet 768px */
+@media screen and (max-width: 768px) {
+  .nuxt-app-wrapper {
+    padding: 0 calc(var(--side-padding) / 2);
+  }
+  .landing-page-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .landing-image-title-wrapper {
+    padding: 0.5em 1em;
+  }
+  .landing-image-title-wrapper > h2 {
+    font-size: 44px;
+  }
+  .landing-image-title-wrapper > p {
+    font-size: 12px;
+  }
+  .side-ribbon-wrapper {
+    background: none;
+    padding-left: 0;
+  }
+  .landing-title-wrapper > h2 > span {
+    border-top: 1px solid var(--dark-text-color-dimmed);
+    color: #353535;
+  }
+  .landing-title-wrapper > h2 {
+    color: #353535;
+    font-size: 42px;
+    font-weight: 300;
+  }
+  .landing-title-wrapper::before {
+    background-color: var(--secondary-theme-color);
+    left: 0;
+    width: 25%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    bottom: 0;
+    top: 0;
+  }
+  .landing-title-wrapper::after {
+    background-color: var(--secondary-theme-color);
+    left: calc(100% - 25%);
+    width: 25%;
+    clip-path: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    top: 0;
+    bottom: 0;
+  }
+  .landing-title-wrapper > p {
+    color: var(--dark-text-color);
+  }
+  .shot-on-cine-lisa-wrapper {
+    display: none;
+  }
+}
+
+/* Mobile L 425px */
+@media screen and (max-width: 425px) {
+  .nuxt-app-wrapper {
+    padding: 0 calc(var(--side-padding) / 4);
+  }
+  .landing-page-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .landing-image-title-wrapper {
+    padding: 0.5em 1em;
+  }
+  .landing-image-title-wrapper > h2 {
+    font-size: 44px;
+  }
+  .landing-image-title-wrapper > p {
+    font-size: 12px;
+  }
+  .side-ribbon-wrapper {
+    background: none;
+    padding-left: 0;
+  }
+  .landing-title-wrapper > h2 > span {
+    border-top: 1px solid var(--dark-text-color-dimmed);
+    color: #353535;
+  }
+  .landing-title-wrapper > h2 {
+    color: #353535;
+    font-size: 42px;
+    font-weight: 300;
+  }
+  .landing-title-wrapper > p {
+    color: var(--dark-text-color);
+  }
+  .landing-title-wrapper::before,
+  .landing-title-wrapper:after {
+    width: 4%;
+  }
+  .landing-title-wrapper::after {
+    left: calc(100% - 4%);
+  }
+  .what-do-you-need-categories-wrapper {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .what-do-you-need-wrapper > h2 {
+    font-size: 24px;
+  }
+  .what-do-you-need-wrapper > img {
+    height: 200px;
+  }
+  .cameras-category-item,
+  .accessory-category-item {
+    min-width: 180px;
+    margin-bottom: 2em;
+    display: inline-block;
+    padding: 0.5em;
+    height: 200px;
+  }
+  .category-information-wrapper {
+    padding: 0 1em;
+    bottom: 16px;
+  }
+}
 </style>
