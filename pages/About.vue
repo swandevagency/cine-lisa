@@ -134,7 +134,7 @@ export default {
 
         // ? Intersect found
         else {
-          // Get the distance of the intersection and the distance of the point
+          // ? Get the distance of the intersection and the distance of the point
           const intersectionDistance = intersects[0].distance;
           const pointDistance = new THREE.Vector3(
             point.interactionPoint.x,
@@ -479,36 +479,6 @@ export default {
     this.animateLandingPage();
     this.renderOurTechnologies();
     this.renderOurHistory();
-    window.addEventListener("resize", () => {
-      // Update camera
-      this.camera.aspect =
-        this.$refs.cameraTechnologyRender.clientWidth /
-        this.$refs.cameraTechnologyRender.clientHeight;
-      this.camera2.aspect =
-        this.$refs.ourHistoryCameraTechnologyRender.clientWidth /
-        this.$refs.ourHistoryCameraTechnologyRender.clientHeight;
-      this.camera.updateProjectionMatrix();
-      this.camera2.updateProjectionMatrix();
-
-      // Update renderer
-      this.renderer.setSize(
-        this.$refs.cameraTechnologyRender.clientWidth,
-        this.$refs.cameraTechnologyRender.clientHeight
-      );
-      this.renderer2.setSize(
-        this.$refs.ourHistoryCameraTechnologyRender.clientWidth,
-        this.$refs.ourHistoryCameraTechnologyRender.clientHeight
-      );
-      this.renderer.setPixelRatio(
-        Math.min(this.$refs.cameraTechnologyRender.devicePixelRatio, 2)
-      );
-      this.renderer2.setPixelRatio(
-        Math.min(
-          this.$refs.ourHistoryCameraTechnologyRender.devicePixelRatio,
-          2
-        )
-      );
-    });
   },
 };
 </script>

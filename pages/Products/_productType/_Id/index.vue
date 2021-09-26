@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     tick() {
-      // this.camera.lookAt(0, 0, 0);
       this.controls.update();
       this.renderer.render(this.scene, this.camera);
       window.requestAnimationFrame(this.tick);
@@ -80,7 +79,6 @@ export default {
         this.$refs.productModelRenderer
       );
       this.controls.enableDamping = true;
-      // this.controls.enableZoom = false;
       this.controls.enablePan = false;
       // ? Defining renderer
       this.renderer = new THREE.WebGLRenderer({
@@ -96,13 +94,10 @@ export default {
     renderProductModel() {
       const directionalLight = new THREE.DirectionalLight("white", 1);
       const ambientLight = new THREE.AmbientLight("white", 0.5);
-      // const pointLightCreamy = new THREE.PointLight("#c4a280", 1);
       directionalLight.position.set(3, 5, 3);
-      // pointLightCreamy.position.set(-1, -1, -3);
 
       // ? Adding to the scene
       this.scene.add(directionalLight);
-      // this.scene.add(pointLightCreamy);
       this.scene.add(ambientLight);
       // ? Loading the camera 3D model
       const cameraModel = new GLTFLoader().load(
@@ -126,11 +121,6 @@ export default {
             this.getProductInfo.productPosition.y,
             this.getProductInfo.productPosition.z
           );
-          // console.log(gltf.scene.children[0].scale);
-          // this.camera.left = -gltf.scene.children[0].scale.x;
-          // this.camera.right = gltf.scene.children[0].scale.x;
-          // this.camera.top = this.camera.right;
-          // this.camera.bottom = -this.camera.right;
           this.camera.updateProjectionMatrix();
           this.camera.position.z = 3;
           this.camera.position.x = 3;
@@ -156,25 +146,10 @@ export default {
       this.tick();
     },
   },
+  // ? Mounted life hook
   mounted() {
     this.dataInitialization();
     this.renderProductModel();
-    window.addEventListener("resize", () => {
-      // Update camera
-      this.camera.aspect =
-        this.$refs.productModelRenderer.clientWidth /
-        this.$refs.productModelRenderer.clientHeight;
-      this.camera.updateProjectionMatrix();
-
-      // Update renderer
-      this.renderer.setSize(
-        this.$refs.productModelRenderer.clientWidth,
-        this.$refs.productModelRenderer.clientHeight
-      );
-      this.renderer.setPixelRatio(
-        Math.min(this.$refs.productModelRenderer.devicePixelRatio, 2)
-      );
-    });
   },
 };
 </script>
@@ -315,9 +290,6 @@ export default {
   .product-info-title-wrapper > h4 {
     font-size: 0.8em;
   }
-}
-/* Laptop S 1024px */
-@media screen and (max-width: 1024px) {
 }
 /* Tablet 768px */
 @media screen and (max-width: 768px) {

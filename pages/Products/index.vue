@@ -174,17 +174,11 @@ a.category-button {
     padding: 2em calc(var(--side-padding) / 2);
   }
 }
-/* Laptop S 1024px */
-@media screen and (max-width: 1024px) {
-}
 /* Out of context 620px */
 @media screen and (max-width: 620px) {
   .products-list-wrapper {
     flex-direction: column;
   }
-}
-/* Tablet 768px */
-@media screen and (max-width: 768px) {
 }
 /* Mobile L 425px */
 @media screen and (max-width: 425px) {
